@@ -51,6 +51,8 @@ return (false, 0);
  mapping(address => uint256) internal stakes; 
 
 //@notice method to retieve stake for a staker
+//@param _isStaker the staker to retrieve the stake for
+//@return uint256 the amount of wei staked
 function retrieveStake(address _isStaker) public view returns(uint256) {
     return stakes[_isStaker];
 }
@@ -77,5 +79,23 @@ function removeStake(uint256 _stake) public {
     if (stakes[msg.sender == 0]) removeStaker(msg.sender);
     _mint(msg.sender, _stake);
 } 
+// @notice the accumulated reward for each staker
+mapping(address => uint256) benefits; 
 
+//@notice method to allow the stakers check their benefits
+//@param _staker the staker to check benefit for 
+function checkBenefit(address _isStaker) public view returns(uint256) {
+    return benefits[_isStaker];
+}
+
+//@notice a method to the total benefit from all stakers
+//@return uint256 the total benefit of all stakers
+function totalBenefit() public view returns(uint256) {
+    uint256 _totalBenefit = 0;
+
+    for (uint256 x = 0; x < stakers.length; x += 1) {
+        _totalBenefit = _totalBenefit.add(benefit[stakers[x]]);
+    }
+    return _totalBenefit; 
+}
 
