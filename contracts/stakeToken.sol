@@ -105,3 +105,11 @@ function calculateBenefit(address _isStaker) public view returns(uint256){
     return stakes[_isStaker] / 100;
     
 }
+// @notice a method to distribute rewards to all stakers 
+function distributeBenefit() public OnlyOwner {
+  for (uint256 x = 0; stakers.length; x += 1) {
+      address staker = stakers[x];
+      uint256 benefit = calculateBenefit(staker);
+      benefits[staker] = benefits[staker].add(benefit);
+  }
+}
