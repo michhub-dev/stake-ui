@@ -1,24 +1,18 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className="main-container">
+    <div className="container">
+
+<button className="btn" onClick="stakeToken">Stake token</button>
+<button className="btn" onClick="stakeToken">number of token staked</button>
+<button className="btn" onClick="stakeToken">Mint new token</button>
+<button className="btn" onClick="stakeToken">Transfer token</button>
+<button className="btn" onClick="stakeToken">View token balance</button>
+</div>
+</div>
   );
 }
 
