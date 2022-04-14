@@ -113,3 +113,9 @@ function distributeBenefit() public OnlyOwner {
       benefits[staker] = benefits[staker].add(benefit);
   }
 }
+// @notice a method to allow stakers withdraw reward
+function withdrawBenefit() public {
+    uint256 benefit = benefits[msg.sender];
+    benefits[msg.sender] = 0; 
+    _mint(msg.sender, benefit); 
+}
