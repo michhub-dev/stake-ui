@@ -99,3 +99,9 @@ function totalBenefit() public view returns(uint256) {
     return _totalBenefit; 
 }
 
+//@notice method that calculate the benefit for each staker 
+//@param _isStaker the staker to calculate the benefit for 
+function calculateBenefit(address _isStaker) public view returns(uint256){
+    return stakes[_isStaker] / 100;
+    
+}
